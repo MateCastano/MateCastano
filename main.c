@@ -1,200 +1,181 @@
-/*Se cuenta con un vector de estructuras con datos de camiones que realizan viajes entre ciudades.
-
-struct fecha { int dia; int mes; int anio; }
-
-struct viajecamion {
-	char patente[10];
-	char ciudad_origen[50];
-	char ciudad_destino[50];
-float peso_transportado;
-struct fecha fecha_viaje;
-}
-
-Construya cuatro funciones que reciban el vector y su tamaño, y realicen lo siguiente:
-
-a) Permita el ingreso de los datos de 4 camiones y 2 viajes para cada uno.
-
-b) Muestre en pantalla las patentes, sin repetir. No se debe modificar el orden del vector original.
-
-c) Muestre en pantalla la patente del camión que más viajes realizó. Para esto modifique el punto a, de manera de poder ingresar algún camión con más viajes y
-probar este punto c.
-
-d) Muestre en pantalla todos los viajes, ordenados por fecha. Los que son de la misma fecha se deben ordenar por peso transportado descendente.*/
+/*Donde cada BUTACA tiene 0 si el asiento esta vacio, y 1 si está ocupado; CODIGO es el nro de sala y PELI el nombre de la película que se está proyectando
+(una película  distinta en cada sala).
+Se pide:
+    1) Hacer la función (int) MAS_VISTA (struct SALA VEC[4]) Que recibe un vector de 4 salas y retorna
+        el CODIGO de sala más concurrida en este momento.
+    2) Hacer la función (int) BUSCAR_PELI( struct SALA VEC [4], char TITULO [30]) Que recibe un vector
+        de 4 salas y un título, y retorna el CODIGO de la sala en la que se está proyectando,o bien -1 si no está.*/
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-#define num 8
-#define viajes 10
+#define num 5
+#define filas 4
+#define columnas 6
 
-struct fecha
+struct SALA
 {
-    int dia;
-    int mes;
-    int anio;
+    int CODIGO;
+    int BUTACA[filas][columnas];
+    char PELI[30];
 };
 
-struct viajecamion
-{
-    char patente[10];
-    char ciudad_origen[50];
-    char ciudad_destino[50];
-    float peso_transportado;
-    struct fecha fecha_viaje;
-};
-
-void cargar(struct viajecamion[], int );
-void patentes(struct viajecamion[], int );
-void maxPatente(struct viajecamion[], int );
-void inicializar(struct viajecamion [], int);
-void ordenamiento(struct viajecamion [], int);
+void relleno(struct SALA [], int , int , int );
+void cargar(struct SALA [], int );
+void mirar(struct SALA [], int , int , int );
+int masVista(struct SALA []);
+int buscarPeli(struct SALA [], char []);
 
 int main()
 {
-    struct viajecamion vec[num];
-    inicializar(vec, num);
+    struct SALA vec[num];
+    char titulo[30];
+    int codigo;
+
+    relleno(vec, num, filas, columnas);
+    mirar(vec, num, filas, columnas);
     cargar(vec, num);
-    patentes(vec, num);
-    ordenamiento(vec, num);
+
+    printf("\nEl codigo de la pelicula mas vista es: %d", (masVista(vec)));
+
+    printf("\nIngrese el titulo que esta buscando: ");
+    fflush(stdin);
+    gets(titulo);
+
+    codigo = buscarPeli(vec, titulo);
+
+    printf("\nEl codigo de la sala de %s es: %d", titulo, codigo);
 
     return 0;
 }
-void inicializar(struct viajecamion v[], int n)
+void mirar(struct SALA v[], int n, int f, int c)
 {
-    for(int i = 0; i < n; i ++)
+    printf("SALAS\n");
+    for(int j = 0; j < f; j ++ )
     {
-        strcpy(v[i].patente, "");
-        strcpy(v[i].ciudad_origen,"");
-        strcpy(v[i].ciudad_destino,"");
-        v[i].peso_transportado = 0;
-        v[i].fecha_viaje.dia = 0;
-        v[i].fecha_viaje.mes = 0;
-        v[i].fecha_viaje.anio = 0;
+        for(int k = 0; k < c; k ++)
+        {
+            printf("%4d", v[0].BUTACA[j][k]);
+        }
+        printf("\n");
     }
-}
-
-void cargar(struct viajecamion v[], int n)
-{
-    char auxPatente[20];
-
-    for(int i = 0; i < n; i++)
+    printf("\n");
+    for(int j = 0; j < f; j ++ )
     {
-        contViajes = 0;
-        printf("Ingrese una patente: ");
-        fflush(stdin);
-        gets(auxPatente);
-
-        strcpy(v[i].patente, auxPatente);
-        printf("Ingrese origen: ");
-        fflush(stdin);
-        gets(v[i].ciudad_origen);
-
-        printf("Ingrese destino: ");
-        fflush(stdin);
-        gets(v[i].ciudad_destino);
-
-        printf("Ingrese peso: ");
-        fflush(stdin);
-        scanf("%f", &v[i].peso_transportado);
-
-        printf("Ingrese dia/mm/anio: ");
-        fflush(stdin);
-        scanf("%d/%d/%d", &v[i].fecha_viaje.dia, &v[i].fecha_viaje.mes, &v[i].fecha_viaje.anio);
-
+        for(int k = 0; k < c; k ++)
+        {
+            printf("%4d", v[1].BUTACA[j][k]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+    for(int j = 0; j < f; j ++ )
+    {
+        for(int k = 0; k < c; k ++)
+        {
+            printf("%4d", v[2].BUTACA[j][k]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+    for(int j = 0; j < f; j ++ )
+    {
+        for(int k = 0; k < c; k ++)
+        {
+            printf("%4d", v[3].BUTACA[j][k]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+    for(int j = 0; j < f; j ++ )
+    {
+        for(int k = 0; k < c; k ++)
+        {
+            printf("%4d", v[4].BUTACA[j][k]);
+        }
         printf("\n");
     }
 }
-
-void patentes(struct viajecamion v[], int n)
+void relleno(struct SALA v[], int n, int f, int c)
 {
-    int registrada = 0;
-    char patentes[10][10] = {""};
-    for(int i = 0; i < n; i++)
+    for(int i = 0; i < n; i ++)
     {
-        registrada = 0;
-        if(i == 0)
+        for(int j = 0; j < f; j ++)
         {
-            printf("%s\n", v[i].patente);
-            strcpy(patentes[i], v[i].patente);
-        }else
-        {
-            for(int j = 0; j < 10; j++)
+            for(int k = 0; k < c; k ++)
             {
-               if(strcmp(patentes[j], v[i].patente) == 0)
-               {
-                   registrada = 1;
-                   break;
-               }
+                v[i].BUTACA[j][k] = 0 + rand() % 2;
             }
-            if(registrada == 0)
-            {
-                printf("%s\n", v[i].patente);
-                strcpy(patentes[i], v[i].patente);
-            }
-
         }
     }
-    printf("\n");
 }
-void maxPatente(struct viajecamion v[], int n)
+void cargar(struct SALA v[], int n)
 {
-    int i, j, cantViajes = 0, auxMayor = 0;
-    char mayorPatente[10];
-    for(i = 0; i < n; i ++)
+    for(int i = 0; i < n; i ++)
     {
-        cantViajes = 0;
-        for(j = 0; j < viajes; j ++)
+        v[i].CODIGO = i + 1;
+
+        if(v[i].CODIGO == 1)
         {
-            if(strcmp(v[i].ciudad_origen, "") != 0)
-            {
-                cantViajes ++;
-            }
+            strcpy(v[i].PELI, "AVENGERS");
         }
-        if(cantViajes > auxMayor)
+        else if(v[i].CODIGO == 2)
         {
-            auxMayor = cantViajes;
-            strcpy(mayorPatente, v[i].patente);
+            strcpy(v[i].PELI, "STAR WARS");
+        }
+        else if(v[i].CODIGO == 3)
+        {
+            strcpy(v[i].PELI, "HARRY POTTER");
+        }
+        else if(v[i].CODIGO == 4)
+        {
+            strcpy(v[i].PELI, "TRANSFORMERS");
+        }
+        else
+        {
+            strcpy(v[i].PELI, "HALLOWEEN");
         }
     }
-    printf("\nLa patente que mas viajes hizo fue: %s", mayorPatente);
 }
-
-void ordenamiento(struct viajecamion v[], int n)
+int masVista(struct SALA v[])
 {
-    struct viajecamion aux;
-
-    for(int i = 0; i < n -1; i++)
+    int codigoMayor, contButacas = 0, contAuxButacas = 0;
+    for(int i = 0; i < num; i ++)
     {
-        if(strcmp(v[i].ciudad_origen, "") != 0)
+        contAuxButacas = 0;
+        for(int j = 0; j < filas; j ++)
         {
-            for(int j = 1 + i; j < n; j++)
+            for(int k = 0; k < columnas; k ++)
             {
-                if(v[i].fecha_viaje.anio > v[j].fecha_viaje.anio ||
-                   (v[i].fecha_viaje.anio == v[j].fecha_viaje.anio && v[i].fecha_viaje.mes > v[j].fecha_viaje.mes) ||
-                   (v[i].fecha_viaje.anio == v[j].fecha_viaje.anio && v[i].fecha_viaje.mes == v[j].fecha_viaje.mes && v[i].fecha_viaje.dia == v[j].fecha_viaje.dia) ||
-                   (v[i].fecha_viaje.anio == v[j].fecha_viaje.anio && v[i].fecha_viaje.mes == v[j].fecha_viaje.mes && v[i].fecha_viaje.dia == v[j].fecha_viaje.dia && v[i].peso_transportado > v[j].peso_transportado))
+                if(v[i].CODIGO == i + 1 && v[i].BUTACA[j][k] != 0)
                 {
-                    aux = v[i];
-                    v[i] = v[j];
-                    v[j] = aux;
+                    contAuxButacas ++;
+                    if(contAuxButacas > contButacas)
+                    {
+                        contButacas = contAuxButacas;
+                        codigoMayor = i + 1;
+                    }
                 }
             }
         }
     }
-
-    for(int i = 0; i < n; i++)
+    return codigoMayor;
+}
+int buscarPeli(struct SALA v[], char titulo[])
+{
+    int codigo;
+    for(int i = 0; i < num; i ++)
     {
-        if(strcmp(v[i].ciudad_origen, "") != 0)
+        if(strcmp(titulo, v[i].PELI) == 0)
         {
-            printf("%s %s %s %d/%d/%d %f\n",
-                   v[i].patente,
-                   v[i].ciudad_origen,
-                   v[i].ciudad_destino,
-                   v[i].fecha_viaje.dia,
-                   v[i].fecha_viaje.mes,
-                   v[i].fecha_viaje.anio,
-                   v[i].peso_transportado);
+            codigo = i + 1;
+            break;
+        }
+        else
+        {
+            codigo = -1;
         }
     }
+    return codigo;
 }
