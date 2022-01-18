@@ -1,25 +1,28 @@
-/*Se cuenta con un vector de estructuras con datos de camiones que realizan viajes entre ciudades.
+/*There is a vector of structures with data from trucks that make trips between cities.
 
-struct fecha { int dia; int mes; int anio; }
-
-struct viajecamion {
-	char patente[10];
-	char ciudad_origen[50];
-	char ciudad_destino[50];
-float peso_transportado;
-struct fecha fecha_viaje;
+struct date 
+{ 
+int day; 
+int month; 
+int year; 
 }
 
-Construya cuatro funciones que reciban el vector y su tamaño, y realicen lo siguiente:
+struct triptruck 
+{
+char patent[10];
+char origin_city[50];
+char destination_city[50];
+float transported_weight;
+struct date travel_date;
+}
 
-a) Permita el ingreso de los datos de 4 camiones y 2 viajes para cada uno.
+Construct four functions that receive the vector and its size, and do the following:
 
-b) Muestre en pantalla las patentes, sin repetir. No se debe modificar el orden del vector original.
-
-c) Muestre en pantalla la patente del camión que más viajes realizó. Para esto modifique el punto a, de manera de poder ingresar algún camión con más viajes y
-probar este punto c.
-
-d) Muestre en pantalla todos los viajes, ordenados por fecha. Los que son de la misma fecha se deben ordenar por peso transportado descendente.*/
+a) Allow the entry of the data of 4 trucks and 2 trips for each one.
+b) Show the patents on the screen, without repeating. The order of the original vector must not be modified.
+c) Show on the screen the license plate of the truck that made the most trips. For this, modify point a, so as to be able to enter a truck with more trips and
+prove this point c.
+d) Display all trips, sorted by date. Those that are of the same date must be sorted by descending transported weight.*/
 
 #include <stdio.h>
 #include <stdlib.h>
