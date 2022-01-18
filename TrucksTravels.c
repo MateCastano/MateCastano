@@ -190,14 +190,7 @@ void ordenamiento(struct viajecamion v[], int n)
     {
         if(strcmp(v[i].ciudad_origen, "") != 0)
         {
-            printf("%s %s %s %d/%d/%d %f\n",
-                   v[i].patente,
-                   v[i].ciudad_origen,
-                   v[i].ciudad_destino,
-                   v[i].fecha_viaje.dia,
-                   v[i].fecha_viaje.mes,
-                   v[i].fecha_viaje.anio,
-                   v[i].peso_transportado);
+            printf("%s %s %s %d/%d/%d %f\n", v[i].patente, v[i].ciudad_origen, v[i].ciudad_destino, v[i].fecha_viaje.dia, v[i].fecha_viaje.mes, v[i].fecha_viaje.anio, v[i].peso_transportado);
         }
     }
 }
