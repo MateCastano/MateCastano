@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @MateCastano.
 - 👀 I’m interested in Object-oriented Programming and Procedural Programming.
-- 🌱 I’m currently learning C and C#.
+- 🌱 I’m currently learning C, C++ and C#.
 - 💞️ I’m looking to collaborate on any proyect which help me to improve my skills.
 - 📫 How to reach me mateonc@gmail.com
 
