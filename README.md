@@ -1,4 +1,15 @@
 ### Hi there 👋
+I'm a Developer 🚀 who is passionate about programming, and the new challenges that it constantly proposes 🙌
+
+I'm currently studying a technical degree in Programming 👨‍🎓 at the Universidad Tecnologica Nacional📚
+
+I specialize in many technologies such as HTML, CSS, Javascript, PHP, C++, C, C#.NET, MySQL, SQL Server. 🤖
+
+You can see more about me in:
+
+👷‍♂️ Linkedin: https://www.linkedin.com/in/mateo-casta%C3%B1o-65778420a/
+
+📫 How to reach me: mateonc@gmail.com
 
 <!--
 **MateCastano/MateCastano** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
