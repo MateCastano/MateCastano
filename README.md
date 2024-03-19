@@ -1,7 +1,7 @@
 ### Hi there 👋
 I'm a Developer 🚀 who is passionate about programming, and the new challenges that it constantly proposes 🙌
 
-I'm currently studying a technical degree in Programming 👨‍🎓 at the Universidad Tecnologica Nacional📚
+I studied a technical degree in Programming 👨‍🎓 at the Universidad Tecnologica Nacional📚
 
 I specialize in many technologies such as HTML, CSS, Javascript, PHP, C++, C, C#.NET, MySQL, SQL Server. 🤖
 
