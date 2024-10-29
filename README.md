@@ -1,5 +1,5 @@
 ### Hi there 👋
-I'm a Developer 🚀 who is passionate about programming, and the new challenges that it constantly proposes 🙌
+I'm a Software Developer 🚀 who is passionate about programming, and the new challenges that it constantly proposes 🙌
 
 I studied a technical degree in Programming 👨‍🎓 at the Universidad Tecnologica Nacional📚
 
