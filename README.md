@@ -3,7 +3,7 @@ I'm a Software Developer 🚀 who is passionate about programming, and the new c
 
 I am a University Technician in Programming 👨‍🎓 graduated on the Universidad Tecnologica Nacional📚
 
-I specialize in many technologies such as HTML, CSS, Javascript, PHP, C++, C, C#.NET, MySQL, SQL Server, Node.JS, Express. 🤖
+I specialize in many technologies such as HTML, CSS, Javascript, PHP, C++, C, C#.NET, MySQL, SQL Server, Node.JS, Express, Ruby. 🤖
 
 You can see more about me in:
 
